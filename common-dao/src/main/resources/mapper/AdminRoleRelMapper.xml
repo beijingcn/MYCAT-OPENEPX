@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.AdminRoleRelMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.AdminRoleRel">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="admins" jdbcType="BIGINT" property="admins" />
+    <id column="roles" jdbcType="BIGINT" property="roles" />
+  </resultMap>
+</mapper>
