@@ -1,0 +1,31 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.zeroc.com/nexus/content/repositories/releases'
+        }
+    }
+    dependencies {
+        classpath group: 'com.zeroc.gradle.ice-builder', name: 'slice', version: '1.0.2'
+    }
+}
+apply plugin: 'slice'
+apply plugin: 'java'
+slice {
+    java {
+//        include = ["${projectDir}"]
+//        srcDir = 'src/main/slice'
+        output =file('src/main/java')
+    }
+}
+
+
+dependencies{
+
+  compile  libraries.'ice'
+
+
+}
+

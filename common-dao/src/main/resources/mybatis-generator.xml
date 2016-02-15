@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- Class Driver Path -->
+    <!--<classPathEntry location="mysql-connector-java-5.1.36.jar"/>-->
+
+    <context id="context" targetRuntime="MyBatis3Simple">
+
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+            <property name="caseSensitive" value="false"/>
+        </plugin>
+
+        <commentGenerator>
+            <!-- This property is used to specify whether MBG will include any coments in the generated code -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- This property is used to specify whether MBG will include the generation timestamp in the generated comments -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/test" userId="root" password="111111"/>
+
+        <javaTypeResolver>
+            <!-- This property is used to specify whether MyBatis Generator should force the use of java.math.BigDecimal
+      for DECIMAL and NUMERIC fields, rather than substituting integral types when possible -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="io.mycat.epx.entity" targetProject="D:\\git\\beijingcn\\MYCAT-OPENEPX\\MYCAT-OPENEPX\\common-entity\\src\\main\\java">
+            <!-- This property is used to select whether MyBatis Generator will generate different Java packages for
+      the objects based on the catalog and schema of the introspected table -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- This property is used to select whether MyBatis Generator adds code to trim the white space from character fields returned from the database -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="D:\\git\\beijingcn\\MYCAT-OPENEPX\\MYCAT-OPENEPX\\common-dao\\src\\main\\resources">
+            <!-- This property is used to select whether MyBatis Generator will generate different Java packages for
+      the objects based on the catalog and schema of the introspected table -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="io.mycat.epx.dao.mapper" targetProject="D:\\git\\beijingcn\\MYCAT-OPENEPX\\MYCAT-OPENEPX\\common-dao\\src\\main\\java" type="XMLMAPPER">
+            <!-- This property is used to select whether MyBatis Generator will generate different Java packages for
+      the objects based on the catalog and schema of the introspected table -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--enableUpdateByExample="false"/>-->
+        <table tableName="shop_cart" domainObjectName="Cart"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_cart_item" domainObjectName="CartItem" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_delivery_corp" domainObjectName="DeliveryCorp"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_deposit" domainObjectName="Deposit"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_goods" domainObjectName="Goods"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_order" domainObjectName="Order"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_order_item" domainObjectName="OrderItem"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_order_log" domainObjectName="OrderLog"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_payment" domainObjectName="Payment"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_payment_log" domainObjectName="PaymentLog"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_payment_method" domainObjectName="PaymentMethod"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_payment_plugin" domainObjectName="PaymentPlugin"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_receiver" domainObjectName="Receiver"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_refunds" domainObjectName="Refunds"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_returns" domainObjectName="Returns"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_returns_item" domainObjectName="ReturnsItem"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_review" domainObjectName="Review"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_shipping" domainObjectName="Shipping"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_shipping_item" domainObjectName="ShippingItem"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_shipping_method" domainObjectName="ShippingMethod"  >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_admin" domainObjectName="Admin" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_admin_role" domainObjectName="AdminRoleRel">
+            
+        </table>
+        <table tableName="shop_role" domainObjectName="Role">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="shop_role_authority" domainObjectName="RoleAuthority">
+
+        </table>
+
+    </context>
+</generatorConfiguration>

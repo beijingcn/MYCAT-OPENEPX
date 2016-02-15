@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.Order">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="partner" jdbcType="BIGINT" property="partner" />
+    <result column="expire" jdbcType="TIMESTAMP" property="expire" />
+    <result column="lock_expire" jdbcType="TIMESTAMP" property="lockExpire" />
+    <result column="amount_paid" jdbcType="DECIMAL" property="amountPaid" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="offset_amount" jdbcType="DECIMAL" property="offsetAmount" />
+    <result column="tax" jdbcType="DECIMAL" property="tax" />
+    <result column="promotion" jdbcType="VARCHAR" property="promotion" />
+    <result column="promotion_discount" jdbcType="DECIMAL" property="promotionDiscount" />
+    <result column="coupon_code" jdbcType="BIGINT" property="couponCode" />
+    <result column="coupon_discount" jdbcType="DECIMAL" property="couponDiscount" />
+    <result column="area" jdbcType="BIGINT" property="area" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="consignee" jdbcType="VARCHAR" property="consignee" />
+    <result column="is_invoice" jdbcType="BIT" property="isInvoice" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="payment_method_name" jdbcType="VARCHAR" property="paymentMethodName" />
+    <result column="payment_method" jdbcType="BIGINT" property="paymentMethod" />
+    <result column="payment_status" jdbcType="INTEGER" property="paymentStatus" />
+    <result column="shipping_method_name" jdbcType="VARCHAR" property="shippingMethodName" />
+    <result column="shipping_method" jdbcType="BIGINT" property="shippingMethod" />
+    <result column="shipping_status" jdbcType="INTEGER" property="shippingStatus" />
+    <result column="freight" jdbcType="DECIMAL" property="freight" />
+    <result column="is_allocated_stock" jdbcType="BIT" property="isAllocatedStock" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="operator" jdbcType="BIGINT" property="operator" />
+  </resultMap>
+</mapper>

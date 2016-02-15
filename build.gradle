@@ -1,0 +1,232 @@
+import java.text.SimpleDateFormat
+
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+ext{
+    project_group = group
+    project_jdk = '1.7'
+
+    /** 生成 manifest 的方法，在打 jar 包或者 war 包时候调用 */
+    defaultManifest = { proj ->
+
+        return manifest {
+            def buildTimeAndDate = new Date()
+            def buildDate = new SimpleDateFormat('yyyy-MM-dd').format(buildTimeAndDate)
+            def buildTime = new SimpleDateFormat('HH:mm').format(buildTimeAndDate)
+
+//            def git_cmd = "git rev-parse HEAD"
+//            def git_proc = git_cmd.execute()
+//            attributes 'SCM-Revision': git_proc.text.trim()
+
+            attributes 'Built-By': System.properties['user.name']
+            attributes 'Created-By': System.properties['java.version'] + " (" + System.properties['java.vendor'] + " " + System.getProperty("java.vm.version") + ")"
+            attributes 'Build-Host': InetAddress.localHost.hostName
+            attributes 'Build-Date': buildDate
+            attributes 'Build-Time': buildTime
+            attributes 'Timestamp': String.valueOf(System.currentTimeMillis())
+            attributes 'Specification-Title': proj.archivesBaseName
+            attributes 'Specification-Version': proj.version
+            attributes 'Specification-Vendor': project_group
+            attributes 'Implementation-Title': proj.archivesBaseName
+            attributes 'Implementation-Version': proj.version
+            attributes 'Implementation-Vendor': project_group
+            attributes 'provider': 'gradle'
+        }
+    }
+
+
+    /**
+     * 子项目中调用，用于生成编译数字，此数字可以作为版本号的一个组成部分。
+     *
+     * 存储位置为子项目下的 build_number.properties,此文件与子项目的 build.gradle 平级
+     */
+    buildNumberIncrease = {
+        def _build_number_file = new File('build_number.properties')
+        def buildNumber = _build_number_file.text.toInteger()
+
+        println '-- Old build number: ' + _build_number_file.text
+        buildNumber++
+        println '-- New build number: ' + buildNumber
+
+        _build_number_file.text = buildNumber
+
+        return buildNumber
+
+    }
+
+}
+
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply from: 'dependency.gradle'
+
+allprojects {
+    //apply plugin: 'license'
+}
+
+
+subprojects { subproj ->
+
+    //group = project_group
+    // 这儿置为空值，否则 idea 生成的依赖包命名以此值开始
+    // 与 gradle 的打包规则有冲突
+    //group = ""
+
+    apply plugin: 'java'
+    sourceCompatibility = project_jdk
+    targetCompatibility = project_jdk
+
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'signing'
+    //使用signing plugin做数字签名
+
+    repositories {
+
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://192.168.0.226:8081/nexus/content/groups/public/'
+        }
+        maven {
+            url 'https://repo.zeroc.com/nexus/content/repositories/releases'
+        }
+    }
+
+    //    configurations {
+//
+//        // 所有需要忽略的包定义在此
+//        //all*.exclude group: 'commons-logging'
+//    }
+
+    dependencies {
+
+
+        // 通用依赖
+        compile(
+                libraries.'fastjson',
+                libraries.'slf4j-api',
+                libraries.'slf4j-log4j12'
+        )
+
+        // 引入根目录和各子项目下的libs中的jar包
+        ext.jarTree = fileTree(dir: 'libs', include: '**/*.jar')
+        ext.rootProjectLibs = new File(rootProject.rootDir, 'libs').getAbsolutePath()
+        ext.jarTree += fileTree(dir: rootProjectLibs, include: '**/*.jar')
+
+        compile jarTree
+
+        // 测试依赖
+        testCompile(
+                libraries.'junit',
+                libraries.'spring-test'
+        )
+    }
+
+
+    // 编码改为 UTF-8
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+
+    jar {
+        //excludes = ['conf','log4j.xml']
+        doFirst {
+            // 生成jar 包的时候按此规则生成 manifest 文件
+            manifest = defaultManifest({ subproj })
+        }
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from 'build/docs/javadoc'
+        doFirst {
+            manifest = defaultManifest({ subproj })
+        }
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+        doFirst {
+            manifest = defaultManifest({ subproj })
+        }
+    }
+
+    // 显示当前项目下所有用于 compile 的 jar.
+    task listJars(description: 'Display all compile jars.') << {
+        configurations.compile.each { File file -> println file.name }
+    }
+    //拷贝依赖jar
+    task copyJars(type: Copy) {
+        from configurations.runtime
+        into 'build/complieJars' // 目标位置
+    }
+
+    artifacts {
+        archives jar
+        // archives javadocJar
+        archives sourcesJar
+    }
+
+
+    signing {
+        required = { gradle.taskGraph.hasTask("uploadArchives") && !version.endsWith("SNAPSHOT") }
+        sign configurations.archives
+    }
+    // 上传 jar 包到自己的 maven 服务器
+    uploadArchives {
+        //configuration = configurations.archives
+        repositories{
+            mavenDeployer {
+                //为Pom文件做数字签名
+//                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                repository(url: 'http://192.168.0.226:8081/nexus/content/repositories/releases/') {//仓库地址
+                    authentication(userName: "admin",password: "Pencho@12#")
+                }
+
+                snapshotRepository(url: 'http://192.168.0.226:8081/nexus/content/repositories/snapshots/') {
+                    authentication(userName: 'admin', password: 'Pencho@12#');
+                }
+
+                pom.project {
+                    name project.name
+                    packaging 'jar'
+                    description project.name
+                    url 'http://192.168.0.226:8081/nexus/'
+
+                }
+            }
+        }
+    }
+}
+
+
+
+// idea 里面忽略根项目，不将根项目设置为 module
+//gradle.projectsEvaluated {
+//    gradle.rootProject {
+//        ideaModule.enabled = false
+//        idea {
+//            project {
+//                def modulesToInclude = subprojects.findAll {it.ideaModule.enabled == true}
+//                modules = modulesToInclude.idea.module
+//            }
+//        }
+//    }
+//}
+
+idea {
+    module {
+        downloadSources = true
+    }
+    project {
+        jdkName = project_jdk
+        languageLevel = project_jdk
+    }
+}
+

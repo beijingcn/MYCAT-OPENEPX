@@ -1,0 +1,15 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+dependencies{
+
+    compile(
+
+            project(':common-entity'),
+            project(':common-dao'),
+            project(':common-service'),
+            project(':common-ice'),
+            project(':business-goods-ice')
+    )
+
+}

@@ -1,0 +1,9 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+// jar°üµÄÃû×Ö
+archivesBaseName = 'common-entity'
+
+
+dependencies{
+    compile libraries.'persistence-api'
+}

@@ -1,0 +1,17 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+
+dependencies{
+
+    compile(
+
+      libraries.'ice',
+      libraries.'icebox',
+      libraries.'icegrid',
+      libraries.'icestorm',
+      libraries.'spring-beans'
+    )
+
+
+}

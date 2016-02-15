@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.CartItemMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.CartItem">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="cartId" jdbcType="BIGINT" property="cartid" />
+    <result column="itemId" jdbcType="BIGINT" property="itemid" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.ReturnsMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.Returns">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="returns_sn" jdbcType="VARCHAR" property="returnsSn" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="partner" jdbcType="BIGINT" property="partner" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="delivery_corp" jdbcType="VARCHAR" property="deliveryCorp" />
+    <result column="tracking_no" jdbcType="VARCHAR" property="trackingNo" />
+    <result column="freight" jdbcType="DECIMAL" property="freight" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="shipper" jdbcType="VARCHAR" property="shipper" />
+    <result column="shipping_method" jdbcType="VARCHAR" property="shippingMethod" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+</mapper>

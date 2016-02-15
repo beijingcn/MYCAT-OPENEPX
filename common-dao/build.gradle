@@ -1,0 +1,30 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+
+dependencies{
+    compile(
+
+        project(':common-entity'),
+
+        libraries.'spring-core',
+        libraries.'spring-jdbc',
+        libraries.'spring-beans',
+        libraries.'spring-context',
+        libraries.'spring-orm',
+        libraries.'spring-tx',
+        libraries.'spring-expression',
+        libraries.'mybatis',
+        libraries.'mybatis-spring',
+        libraries.'tk-mybatis-mapper',
+        libraries.'pagehelper',
+        libraries.'mysql-connector',
+        libraries.'druid',
+        libraries.'slf4j-api',
+        libraries.'slf4j-log4j12',
+        libraries.'aspectjrt',
+        libraries.'aspectjweaver'
+    )
+
+    compile libraries.'mybatis-generator-core'
+}

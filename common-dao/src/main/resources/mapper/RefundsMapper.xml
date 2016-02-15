@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.RefundsMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.Refunds">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="refunds_sn" jdbcType="VARCHAR" property="refundsSn" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="partner" jdbcType="BIGINT" property="partner" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="method" jdbcType="INTEGER" property="method" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="payee" jdbcType="VARCHAR" property="payee" />
+    <result column="payment_method" jdbcType="VARCHAR" property="paymentMethod" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+</mapper>
