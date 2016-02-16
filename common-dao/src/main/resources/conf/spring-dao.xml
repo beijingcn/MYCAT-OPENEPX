@@ -11,7 +11,7 @@
        <context:property-placeholder location="classpath:conf/jdbc.properties" file-encoding="UTF-8"/>
 
        <!-- 扫描文件（自动将dao层注入） -->
-       <!--<context:component-scan base-package="cn.com.pencho.dao"/>-->
+       <!--<context:component-scan base-package="io.mycat.epx.dao"/>-->
 
        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
              destroy-method="close" >
@@ -91,13 +91,13 @@
 
        <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
               <!--<property name="annotationClass" value="org.springframework.stereotype.Repository"/>-->
-              <!--<property name="basePackage" value="cn.com.pencho.dao.mapper"/>-->
+              <!--<property name="basePackage" value="io.mycat.epx.dao.mapper"/>-->
               <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
        <!--</bean>-->
 
         <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
             <!--<property name="annotationClass" value="org.springframework.stereotype.Repository"/>-->
-            <property name="basePackage" value="cn.com.pencho.dao.mapper"/>
+            <property name="basePackage" value="io.mycat.epx.dao.mapper"/>
             <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         </bean>
 

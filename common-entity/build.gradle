@@ -1,6 +1,6 @@
-group 'cn.com.pencho'
+group 'io.mycat.epx'
 version '1.0-SNAPSHOT'
-// jar°üµÄÃû×Ö
+
 archivesBaseName = 'common-entity'
 
 

@@ -7,7 +7,7 @@
 		</layout>
 	</appender>
 
-	<logger name="cn.com.pencho">
+	<logger name="io.mycat.epx">
 		<level value="DEBUG" />
 	</logger>
 
