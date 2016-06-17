@@ -90,9 +90,9 @@ subprojects { subproj ->
 
         mavenLocal()
         mavenCentral()
-        maven {
-            url 'http://192.168.0.226:8081/nexus/content/groups/public/'
-        }
+//        maven {
+//            url 'http://192.168.0.226:8081/nexus/content/groups/public/'
+//        }
         maven {
             url 'https://repo.zeroc.com/nexus/content/repositories/releases'
         }
@@ -178,31 +178,7 @@ subprojects { subproj ->
         required = { gradle.taskGraph.hasTask("uploadArchives") && !version.endsWith("SNAPSHOT") }
         sign configurations.archives
     }
-    // 上传 jar 包到自己的 maven 服务器
-    uploadArchives {
-        //configuration = configurations.archives
-        repositories{
-            mavenDeployer {
-                //为Pom文件做数字签名
-//                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-                repository(url: 'http://192.168.0.226:8081/nexus/content/repositories/releases/') {//仓库地址
-                    authentication(userName: "admin",password: "Pencho@12#")
-                }
 
-                snapshotRepository(url: 'http://192.168.0.226:8081/nexus/content/repositories/snapshots/') {
-                    authentication(userName: 'admin', password: 'Pencho@12#');
-                }
-
-                pom.project {
-                    name project.name
-                    packaging 'jar'
-                    description project.name
-                    url 'http://192.168.0.226:8081/nexus/'
-
-                }
-            }
-        }
-    }
 }
 
 
