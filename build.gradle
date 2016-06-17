@@ -90,15 +90,13 @@ subprojects { subproj ->
 
         mavenLocal()
         mavenCentral()
-//        maven {
-//            url 'http://192.168.0.226:8081/nexus/content/groups/public/'
-//        }
+
         maven {
             url 'https://repo.zeroc.com/nexus/content/repositories/releases'
         }
     }
 
-    //    configurations {
+//    configurations {
 //
 //        // 所有需要忽略的包定义在此
 //        //all*.exclude group: 'commons-logging'
