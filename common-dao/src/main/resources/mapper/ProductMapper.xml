@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.mycat.epx.dao.mapper.ProductMapper" >
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.Product" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="product_sn" property="productSn" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="full_name" property="fullName" jdbcType="VARCHAR" />
+    <result column="stock" property="stock" jdbcType="INTEGER" />
+    <result column="stock_memo" property="stockMemo" jdbcType="VARCHAR" />
+    <result column="allocated_stock" property="allocatedStock" jdbcType="INTEGER" />
+    <result column="cost" property="cost" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
+    <result column="point" property="point" jdbcType="BIGINT" />
+    <result column="sales" property="sales" jdbcType="BIGINT" />
+    <result column="hits" property="hits" jdbcType="BIGINT" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="is_gift" property="isGift" jdbcType="BIT" />
+    <result column="is_list" property="isList" jdbcType="BIT" />
+    <result column="is_marketable" property="isMarketable" jdbcType="BIT" />
+    <result column="is_top" property="isTop" jdbcType="BIT" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="REAL" />
+    <result column="score_count" property="scoreCount" jdbcType="BIGINT" />
+    <result column="total_score" property="totalScore" jdbcType="BIGINT" />
+    <result column="seo_description" property="seoDescription" jdbcType="VARCHAR" />
+    <result column="seo_keywords" property="seoKeywords" jdbcType="VARCHAR" />
+    <result column="seo_title" property="seoTitle" jdbcType="VARCHAR" />
+    <result column="month_hits" property="monthHits" jdbcType="BIGINT" />
+    <result column="month_hits_date" property="monthHitsDate" jdbcType="TIMESTAMP" />
+    <result column="month_sales" property="monthSales" jdbcType="BIGINT" />
+    <result column="month_sales_date" property="monthSalesDate" jdbcType="TIMESTAMP" />
+    <result column="week_hits" property="weekHits" jdbcType="BIGINT" />
+    <result column="week_hits_date" property="weekHitsDate" jdbcType="TIMESTAMP" />
+    <result column="week_sales" property="weekSales" jdbcType="BIGINT" />
+    <result column="week_sales_date" property="weekSalesDate" jdbcType="TIMESTAMP" />
+    <result column="brand" property="brand" jdbcType="BIGINT" />
+    <result column="goods" property="goods" jdbcType="BIGINT" />
+    <result column="product_category" property="productCategory" jdbcType="BIGINT" />
+    <result column="partner" property="partner" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="modify_date" property="modifyDate" jdbcType="TIMESTAMP" />
+    <result column="introduction" property="introduction" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

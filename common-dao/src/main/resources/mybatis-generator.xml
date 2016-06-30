@@ -26,7 +26,7 @@
             <property name="suppressDate" value="true"/>
         </commentGenerator>
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/test" userId="root" password="111111"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/openep" userId="root" password="111111"/>
 
         <javaTypeResolver>
             <!-- This property is used to specify whether MyBatis Generator should force the use of java.math.BigDecimal
@@ -56,78 +56,137 @@
 
         <!--<table tableName="" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
-        <table tableName="shop_cart" domainObjectName="Cart"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_cart_item" domainObjectName="CartItem" >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_delivery_corp" domainObjectName="DeliveryCorp"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_deposit" domainObjectName="Deposit"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_goods" domainObjectName="Goods"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_order" domainObjectName="Order"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_order_item" domainObjectName="OrderItem"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_order_log" domainObjectName="OrderLog"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_payment" domainObjectName="Payment"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_payment_log" domainObjectName="PaymentLog"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_payment_method" domainObjectName="PaymentMethod"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_payment_plugin" domainObjectName="PaymentPlugin"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_receiver" domainObjectName="Receiver"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_refunds" domainObjectName="Refunds"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_returns" domainObjectName="Returns"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_returns_item" domainObjectName="ReturnsItem"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_review" domainObjectName="Review"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_shipping" domainObjectName="Shipping"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_shipping_item" domainObjectName="ShippingItem"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_shipping_method" domainObjectName="ShippingMethod"  >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_admin" domainObjectName="Admin" >
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_admin_role" domainObjectName="AdminRoleRel">
-            
-        </table>
-        <table tableName="shop_role" domainObjectName="Role">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="shop_role_authority" domainObjectName="RoleAuthority">
+        <!--<table tableName="shop_cart" domainObjectName="Cart"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_cart_item" domainObjectName="CartItem" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_delivery_corp" domainObjectName="DeliveryCorp"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_deposit" domainObjectName="Deposit"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_goods" domainObjectName="Goods"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_order" domainObjectName="Order"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_order_item" domainObjectName="OrderItem"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_order_log" domainObjectName="OrderLog"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_payment" domainObjectName="Payment"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_payment_log" domainObjectName="PaymentLog"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_payment_method" domainObjectName="PaymentMethod"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_payment_plugin" domainObjectName="PaymentPlugin"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_receiver" domainObjectName="Receiver"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_refunds" domainObjectName="Refunds"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_returns" domainObjectName="Returns"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_returns_item" domainObjectName="ReturnsItem"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_review" domainObjectName="Review"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_shipping" domainObjectName="Shipping"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_shipping_item" domainObjectName="ShippingItem"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_shipping_method" domainObjectName="ShippingMethod"  >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_admin" domainObjectName="Admin" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_admin_role" domainObjectName="AdminRoleRel">-->
+            <!-- -->
+        <!--</table>-->
+        <!--<table tableName="shop_role" domainObjectName="Role">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_role_authority" domainObjectName="RoleAuthority">-->
+
+        <!--</table>-->
+        <!--<table tableName="shop_product" domainObjectName="Product" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_product_category" domainObjectName="ProductCategory">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        
+        <!--<table tableName="shop_area" domainObjectName="Area">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_brand" domainObjectName="Brand">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="shop_member" domainObjectName="Member">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_member_rank" domainObjectName="MemberRank">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="shop_partner" domainObjectName="Partner">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_specification" domainObjectName="Specification">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_specification_value" domainObjectName="SpecificationValue">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="shop_product_specification" domainObjectName="ProductSpecification">
 
         </table>
+        <table tableName="shop_product_specification_value" domainObjectName="ProductSpecificationValue">
 
+        </table>
+        <!--<table tableName="shop_parameter" domainObjectName="Parameter" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_parameter_group" domainObjectName="ParameterGroup">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_product_parameter_value" domainObjectName="ProductParameterValue"/>-->
+        <!--<table tableName="shop_coupon" domainObjectName="Coupon">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_coupon_code" domainObjectName="CouponCode">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_product_image" domainObjectName="ProductImage" />-->
+        <!--<table tableName="shop_order_coupon" domainObjectName="OrderCoupon" />-->
+        <!--<table tableName="shop_tag" domainObjectName="Tag" >-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="shop_product_tag" domainObjectName="ProductTag"/>-->
+        <!--<table tableName="shop_member_favorite_product" domainObjectName="MemberFavoriteProduct" />-->
+
+
+        <table tableName="demo">
+        </table>
     </context>
 </generatorConfiguration>

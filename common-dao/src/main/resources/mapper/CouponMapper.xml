@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.mycat.epx.dao.mapper.CouponMapper">
+  <resultMap id="BaseResultMap" type="io.mycat.epx.entity.Coupon">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="begin_date" jdbcType="TIMESTAMP" property="beginDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="is_enabled" jdbcType="BIT" property="isEnabled" />
+    <result column="is_exchange" jdbcType="BIT" property="isExchange" />
+    <result column="maximum_price" jdbcType="DECIMAL" property="maximumPrice" />
+    <result column="maximum_quantity" jdbcType="INTEGER" property="maximumQuantity" />
+    <result column="minimum_price" jdbcType="DECIMAL" property="minimumPrice" />
+    <result column="minimum_quantity" jdbcType="INTEGER" property="minimumQuantity" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="point" jdbcType="BIGINT" property="point" />
+    <result column="prefix" jdbcType="VARCHAR" property="prefix" />
+    <result column="price_expression" jdbcType="VARCHAR" property="priceExpression" />
+    <result column="partner" jdbcType="BIGINT" property="partner" />
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+  </resultMap>
+</mapper>

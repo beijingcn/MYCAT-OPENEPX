@@ -25,6 +25,8 @@ public class ShippingMethod {
      */
     private BigDecimal price;
 
+    private Long partner;
+
     /**
      * 重量
      */
@@ -118,6 +120,20 @@ public class ShippingMethod {
      */
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    /**
+     * @return partner
+     */
+    public Long getPartner() {
+        return partner;
+    }
+
+    /**
+     * @param partner
+     */
+    public void setPartner(Long partner) {
+        this.partner = partner;
     }
 
     /**

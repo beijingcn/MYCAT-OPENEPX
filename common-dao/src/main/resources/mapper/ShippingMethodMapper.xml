@@ -9,6 +9,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="orders" jdbcType="INTEGER" property="orders" />
     <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="partner" jdbcType="BIGINT" property="partner" />
     <result column="weight" jdbcType="INTEGER" property="weight" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="default_delivery_corp" jdbcType="BIGINT" property="defaultDeliveryCorp" />
