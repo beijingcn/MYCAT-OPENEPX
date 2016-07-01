@@ -158,12 +158,12 @@
         <!--<table tableName="shop_specification_value" domainObjectName="SpecificationValue">-->
             <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
-        <table tableName="shop_product_specification" domainObjectName="ProductSpecification">
+        <!--<table tableName="shop_product_specification" domainObjectName="ProductSpecification">-->
 
-        </table>
-        <table tableName="shop_product_specification_value" domainObjectName="ProductSpecificationValue">
+        <!--</table>-->
+        <!--<table tableName="shop_product_specification_value" domainObjectName="ProductSpecificationValue">-->
 
-        </table>
+        <!--</table>-->
         <!--<table tableName="shop_parameter" domainObjectName="Parameter" >-->
             <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->

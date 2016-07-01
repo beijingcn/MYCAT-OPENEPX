@@ -1,0 +1,38 @@
+group 'cn.com.pencho'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
+    }
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+
+configurations.all {
+    exclude module: 'slf4j-log4j12'
+}
+
+dependencies{
+
+//    compile(
+//
+//            project(':common-entity'),
+//            project(':common-dao'),
+//            project(':common-service')
+//
+//    )
+    compile "com.rabbitmq:amqp-client:3.6.1"
+    compile  libraries.storm_redis
+    compile libraries.httpclient
+
+    compileOnly libraries.storm_core
+    testCompile libraries.storm_core
+
+}
+
